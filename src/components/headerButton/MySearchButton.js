@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { HeaderButton } from "react-navigation-header-buttons";
 
-const MyHeaderButton = (props) => {
+const MySearchButton = (props) => {
   return (
     <HeaderButton
       {...props}
@@ -14,6 +14,6 @@ const MyHeaderButton = (props) => {
   );
 };
 
-export default MyHeaderButton;
+export default MySearchButton;
 
 const styles = StyleSheet.create({});

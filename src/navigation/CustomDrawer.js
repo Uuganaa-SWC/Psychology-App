@@ -16,7 +16,11 @@ const CustomDrawer = (props) => {
       }}
     >
       <View
-        style={{ borderTopWidth: 5, borderTopColor: "#4fc2f8", marginTop: 22 }}
+        style={{
+          borderTopWidth: 2,
+          borderTopColor: "#4fc2f8",
+          marginTop: 30,
+        }}
       ></View>
       <ImageBackground
         source={require("../../assets/back.jpg")}
@@ -36,15 +40,15 @@ const CustomDrawer = (props) => {
           <Image
             source={require("../../assets/profile.jpg")}
             style={{
-              height: 50,
-              width: 50,
+              height: 80,
+              width: 80,
               borderRadius: 50,
-              marginTop: 5,
+              marginTop: 10,
             }}
           ></Image>
           <View style={{ flexDirection: "row", marginTop: 5, marginBottom: 5 }}>
             <Text
-              style={{ fontSize: 14, color: "#341d64", fontWeight: "bold" }}
+              style={{ fontSize: 16, color: "#341d64", fontWeight: "bold" }}
             >
               Дэслэгч Д.Ууганбат
             </Text>
@@ -57,14 +61,13 @@ const CustomDrawer = (props) => {
             {...props}
             labelStyle={{
               marginLeft: -20,
-              fontSize: 15,
+              fontSize: 17,
               color: "#341d64",
               fontWeight: "bold",
             }}
           />
         </View>
       </DrawerContentScrollView>
-
       <ImageBackground
         source={require("../../assets/back1.jpg")}
         style={{
@@ -81,7 +84,7 @@ const CustomDrawer = (props) => {
         >
           <Text
             style={{
-              fontSize: 10,
+              fontSize: 12,
               textAlign: "center",
               opacity: 1,
               color: "#341d64",

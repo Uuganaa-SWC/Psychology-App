@@ -19,9 +19,15 @@ const Article = (props) => {
   }, [props.navigation]);
 
   return (
-    <View>
-      <Text>Article</Text>
-    </View>
+    <View
+      style={{
+        flex: 1,
+        borderWidth: 2,
+        borderColor: "#f58d3f",
+        borderRadius: 20,
+        margin: 1,
+      }}
+    ></View>
   );
 };
 

@@ -18,9 +18,15 @@ const Research = (props) => {
     });
   }, [props.navigation]);
   return (
-    <View>
-      <Text>Research</Text>
-    </View>
+    <View
+      style={{
+        flex: 1,
+        borderWidth: 2,
+        borderColor: "#f73155",
+        borderRadius: 20,
+        margin: 1,
+      }}
+    ></View>
   );
 };
 

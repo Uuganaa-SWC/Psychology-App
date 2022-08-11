@@ -1,10 +1,18 @@
 {
   "expo": {
-    "name": "AmazonBookStore",
-    "slug": "AmazonBookStore",
+    "name": "Сэтгэл зүйн апп",
+    "slug": "Psychology",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -13,18 +21,16 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.davaanyam0330.AmazonBookStore"
+      "bundleIdentifier": "expo.Uugana.Psychology"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "android": {
-      "package": "com.davaanyam0330.AmazonBookStore"
+      "package": "expo.Uuganaa.Psychology"
     }
   }
 }

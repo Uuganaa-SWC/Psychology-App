@@ -1,7 +1,14 @@
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   createStackNavigator,
   HeaderBackButton,
@@ -9,12 +16,13 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import Profile from "../screens/HeaderButtonSreens/Profile";
 import PsyOfficer from "../screens/HeaderButtonSreens/PsyOfficer";
-import TermsOfService from "../screens/HeaderButtonSreens/TermsOfService";
+import TermsOfService from "../screens/HeaderButtonSreens/TermsOfService/TermsOfService";
 import Helpers from "../screens/HeaderButtonSreens/Helpers";
 import PasswordReset from "../screens/HeaderButtonSreens/PasswordReset";
 import LoginScreen from "../screens/componentScreens/LoginScreen";
 import CustomDrawer from "./CustomDrawer";
 
+import TermsOfServiceMain from "../screens/HeaderButtonSreens/TermsOfService/TermsOfServiceMain";
 import BottomTabs from "./BottomTabs";
 
 const Drawer = createDrawerNavigator();
@@ -24,7 +32,12 @@ function ProfileStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "#ff6d00" },
+        headerStyle: {
+          borderBottomLeftRadius: 20,
+          borderBottomRightRadius: 20,
+          backgroundColor: "#ff6d00",
+          borderBottomWidth: 2,
+        },
         headerTintColor: "white",
         headerBackButtonMenuEnabled: true,
       }}
@@ -33,10 +46,6 @@ function ProfileStack() {
         name="Профайл"
         component={Profile}
         options={({ navigation }) => ({
-          headerTitleStyle: {
-            fontSize: 18,
-            fontStyle: "italic",
-          },
           title: "Профайл",
           headerBackTitle: "Буцах",
           headerLeft: (props) => (
@@ -57,7 +66,12 @@ function PsyOfficerStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "#ff6d00" },
+        headerStyle: {
+          borderBottomLeftRadius: 20,
+          borderBottomRightRadius: 20,
+          backgroundColor: "#ff6d00",
+          borderBottomWidth: 2,
+        },
         headerTintColor: "white",
         headerBackButtonMenuEnabled: true,
       }}
@@ -66,10 +80,6 @@ function PsyOfficerStack() {
         name="Сэтгэл зүйч офицерууд"
         component={PsyOfficer}
         options={({ navigation }) => ({
-          headerTitleStyle: {
-            fontSize: 18,
-            fontStyle: "italic",
-          },
           title: "Сэтгэл зүйч офицерууд",
           headerBackTitle: "Буцах",
           headerLeft: (props) => (
@@ -90,7 +100,12 @@ function TermsOfServiceStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "#ff6d00" },
+        headerStyle: {
+          borderBottomLeftRadius: 20,
+          borderBottomRightRadius: 20,
+          backgroundColor: "#ff6d00",
+          borderBottomWidth: 2,
+        },
         headerTintColor: "white",
         headerBackButtonMenuEnabled: true,
       }}
@@ -99,11 +114,23 @@ function TermsOfServiceStack() {
         name="Үйлчилгээний нөхцөл"
         component={TermsOfService}
         options={({ navigation }) => ({
-          headerTitleStyle: {
-            fontSize: 18,
-            fontStyle: "italic",
-          },
           title: "Үйлчилгээний нөхцөл",
+          headerBackTitle: "Буцах",
+          headerLeft: (props) => (
+            <HeaderBackButton
+              {...props}
+              onPress={() => {
+                navigation.goBack();
+              }}
+            />
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="MainScreen"
+        component={TermsOfServiceMain}
+        options={({ navigation, route }) => ({
+          headerTitle: route.params.buttonName,
           headerBackTitle: "Буцах",
           headerLeft: (props) => (
             <HeaderBackButton
@@ -123,7 +150,12 @@ function HelpersStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "#ff6d00" },
+        headerStyle: {
+          borderBottomLeftRadius: 20,
+          borderBottomRightRadius: 20,
+          backgroundColor: "#ff6d00",
+          borderBottomWidth: 2,
+        },
         headerTintColor: "white",
         headerBackButtonMenuEnabled: true,
       }}
@@ -132,10 +164,6 @@ function HelpersStack() {
         name="Тусламж"
         component={Helpers}
         options={({ navigation }) => ({
-          headerTitleStyle: {
-            fontSize: 18,
-            fontStyle: "italic",
-          },
           title: "Тусламж",
           headerBackTitle: "Буцах",
           headerLeft: (props) => (
@@ -156,7 +184,12 @@ function PasswordResetStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "#ff6d00" },
+        headerStyle: {
+          borderBottomLeftRadius: 20,
+          borderBottomRightRadius: 20,
+          backgroundColor: "#ff6d00",
+          borderBottomWidth: 2,
+        },
         headerTintColor: "white",
         headerBackButtonMenuEnabled: true,
       }}
@@ -165,10 +198,6 @@ function PasswordResetStack() {
         name="Нууц үг солих"
         component={PasswordReset}
         options={({ navigation }) => ({
-          headerTitleStyle: {
-            fontSize: 18,
-            fontStyle: "italic",
-          },
           title: "Нууц үг солих",
           headerBackTitle: "Буцах",
           headerLeft: (props) => (
@@ -187,10 +216,15 @@ function PasswordResetStack() {
 
 export default () => (
   <Drawer.Navigator
+    initialRouteName="Гарах"
     drawerContent={(props) => <CustomDrawer {...props} />}
-    screenOptions={{
-      drawerActiveTintColor: "#ff6d00",
-      drawerInactiveTintColor: "grey",
+    drawerStyle={{
+      backgroundColor: "rgba(255, 255, 255, 0.8)",
+      width: "80%",
+    }}
+    drawerContentOptions={{
+      activeTintColor: "#ff6d00",
+      inactiveTintColor: "grey",
     }}
   >
     <Drawer.Screen

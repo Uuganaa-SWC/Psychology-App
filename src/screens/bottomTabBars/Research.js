@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import MyHeaderButton from "../../components/headerButton/MyHeaderButton";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
@@ -18,16 +18,20 @@ const Research = (props) => {
     });
   }, [props.navigation]);
   return (
-    <View
-      style={{
-        flex: 1,
-        borderWidth: 2,
-        borderColor: "#f73155",
-        borderRadius: 20,
-        margin: 1,
-      }}
-    ></View>
+    <View style={styles.mainView}>
+      <Text>Нэгдсэн судалгаа</Text>
+    </View>
   );
 };
 
 export default Research;
+
+const styles = StyleSheet.create({
+  mainView: {
+    flex: 1,
+    borderWidth: 2,
+    borderColor: "#f73155",
+    borderRadius: 20,
+    margin: 1,
+  },
+});

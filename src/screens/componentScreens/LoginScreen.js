@@ -7,7 +7,6 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   Keyboard,
-  Alert,
   Image,
 } from "react-native";
 import React from "react";

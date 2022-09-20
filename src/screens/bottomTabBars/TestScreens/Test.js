@@ -7,12 +7,15 @@ import {
   Image,
   TouchableOpacity,
   ImageBackground,
+  Dimensions,
 } from "react-native";
 import MyHeaderButton from "../../../components/headerButton/MyHeaderButton";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { Ionicons } from "@expo/vector-icons";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 
+const screenWidth = Dimensions.get("window").width;
+var cardWith = screenWidth - 230;
 const Test = (props) => {
   const [getSearch, setSearch] = useState("");
   const [getOfficers, setOfficers] = useState([]);
@@ -144,7 +147,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginLeft: 10,
     marginTop: 10,
-    width: 180,
+    width: cardWith,
     height: 110,
   },
   imageStyles: {
@@ -171,6 +174,6 @@ const styles = StyleSheet.create({
   },
   viewStyles: {
     flexDirection: "row",
-    width: "48%",
+    width: "50%",
   },
 });

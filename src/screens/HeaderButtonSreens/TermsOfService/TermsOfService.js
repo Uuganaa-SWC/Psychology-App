@@ -31,6 +31,11 @@ const TermsOfService = (props) => {
       iconName: "bulb-outline",
       buttonName: "Оюуны өмч",
     },
+    {
+      id: "6",
+      iconName: "help-outline",
+      buttonName: "Тусламж",
+    },
   ];
 
   return (

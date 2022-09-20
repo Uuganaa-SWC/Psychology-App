@@ -17,7 +17,6 @@ import { Ionicons } from "@expo/vector-icons";
 import Profile from "../screens/HeaderButtonSreens/Profile";
 import PsyOfficer from "../screens/HeaderButtonSreens/PsyOfficer";
 import TermsOfService from "../screens/HeaderButtonSreens/TermsOfService/TermsOfService";
-import Helpers from "../screens/HeaderButtonSreens/Helpers";
 import PasswordReset from "../screens/HeaderButtonSreens/PasswordReset";
 import LoginScreen from "../screens/componentScreens/LoginScreen";
 import CustomDrawer from "./CustomDrawer";
@@ -146,40 +145,6 @@ function TermsOfServiceStack() {
   );
 }
 
-function HelpersStack() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: {
-          borderBottomLeftRadius: 20,
-          borderBottomRightRadius: 20,
-          backgroundColor: "#ff6d00",
-          borderBottomWidth: 2,
-        },
-        headerTintColor: "white",
-        headerBackButtonMenuEnabled: true,
-      }}
-    >
-      <Stack.Screen
-        name="Тусламж"
-        component={Helpers}
-        options={({ navigation }) => ({
-          title: "Тусламж",
-          headerBackTitle: "Буцах",
-          headerLeft: (props) => (
-            <HeaderBackButton
-              {...props}
-              onPress={() => {
-                navigation.goBack();
-              }}
-            />
-          ),
-        })}
-      />
-    </Stack.Navigator>
-  );
-}
-
 function PasswordResetStack() {
   return (
     <Stack.Navigator
@@ -267,17 +232,6 @@ export default () => (
         swipeEnabled: false,
         drawerIcon: (config) => (
           <Ionicons name="clipboard" size={22} color={"#ff6d00"} />
-        ),
-      }}
-    />
-
-    <Drawer.Screen
-      name="Тусламж"
-      component={HelpersStack}
-      options={{
-        swipeEnabled: false,
-        drawerIcon: (config) => (
-          <Ionicons name="help-circle" size={22} color={"#ff6d00"} />
         ),
       }}
     />
